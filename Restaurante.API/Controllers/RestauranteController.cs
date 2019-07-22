@@ -97,6 +97,8 @@ namespace Restaurante.API.Controllers
                 var restaurantes = await _repo.GetAllRestauranteAsysncById(RestauranteId);
                 if(restaurantes == null) return NotFound();
 
+                model.Id = RestauranteId;
+
                 _repo.Update(model);
 
                 if(await _repo.SaveChangesAsync())

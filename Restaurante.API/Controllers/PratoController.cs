@@ -97,6 +97,8 @@ namespace Restaurante.API.Controllers
                 var prato = await _repo.GetAllPratosAsysncById(PratosId, false);
                 if(prato == null) return NotFound();
 
+                model.Id = PratosId;
+
                 _repo.Update(model);
 
                 if(await _repo.SaveChangesAsync())
